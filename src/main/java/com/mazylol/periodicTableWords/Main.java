@@ -1,7 +1,7 @@
-package com.mazylol.PeriodicTableWords;
+package com.mazylol.periodicTableWords;
 
-import com.mazylol.PeriodicTableWords.Utils.Check;
-import com.mazylol.PeriodicTableWords.Utils.Files;
+import com.mazylol.periodicTableWords.utils.Check;
+import com.mazylol.periodicTableWords.utils.Files;
 
 import java.io.FileNotFoundException;
 

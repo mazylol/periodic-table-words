@@ -1,11 +1,9 @@
-package com.mazylol.PeriodicTableWords.Utils;
+package com.mazylol.periodicTableWords.utils;
 
-import java.io.FileNotFoundException;
-
-import static com.mazylol.PeriodicTableWords.Main.count;
+import static com.mazylol.periodicTableWords.Main.count;
 
 public class Check {
-    public static boolean CheckWord(String word, String[] words) throws FileNotFoundException {
+    public static boolean CheckWord(String word, String[] words) {
         boolean out = false;
 
         for (String s : words) {

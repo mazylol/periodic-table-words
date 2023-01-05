@@ -1,4 +1,4 @@
-package com.mazylol.PeriodicTableWords.Utils;
+package com.mazylol.periodicTableWords.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
