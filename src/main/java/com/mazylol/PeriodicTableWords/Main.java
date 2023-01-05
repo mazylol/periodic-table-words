@@ -11,17 +11,18 @@ public class Main {
         String[] elements = Files.GetElements();
 
         for (int i = 0; i < 10000; i++) {
-            String w1 = elements[Numbers.getRandomNumber(0, 118)];
-            String w2 = elements[Numbers.getRandomNumber(0, 118)];
-            String w3 = elements[Numbers.getRandomNumber(0, 118)];
-            String w4 = elements[Numbers.getRandomNumber(0, 118)];
+            String word = "";
+            int state = 0; // 0: one 1: two 2: three etc
 
-            String word = w1 + w2 + w3 + w4;
-
+            if (state == 0) {
+                for (String e : elements) {
+                    
+                }
+            }
+            
             for (String s : words) {
                 if (word.toLowerCase().equals(s)) {
                     System.out.println(word.toLowerCase());
-                    System.out.printf("(%s %s %s %s)\n", w1, w2, w3, w4);
                 }
             }
         }
