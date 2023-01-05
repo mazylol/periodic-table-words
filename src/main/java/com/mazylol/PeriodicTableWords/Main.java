@@ -1,30 +1,43 @@
 package com.mazylol.PeriodicTableWords;
 
+import com.mazylol.PeriodicTableWords.Utils.Check;
 import com.mazylol.PeriodicTableWords.Utils.Files;
-import com.mazylol.PeriodicTableWords.Utils.Numbers;
 
 import java.io.FileNotFoundException;
 
 public class Main {
+    public static int count = 0;
+
     public static void main(String[] args) throws FileNotFoundException {
         String[] words = Files.GetWords();
         String[] elements = Files.GetElements();
 
-        for (int i = 0; i < 10000; i++) {
-            String word = "";
-            int state = 0; // 0: one 1: two 2: three etc
-
-            if (state == 0) {
-                for (String e : elements) {
-                    
-                }
+        for (String e : elements) {
+            if (Check.CheckWord(e, words)) {
+                System.out.println(e.toLowerCase());
             }
-            
-            for (String s : words) {
-                if (word.toLowerCase().equals(s)) {
-                    System.out.println(word.toLowerCase());
+        }
+
+        for (String e1 : elements) {
+            for (String e2 : elements) {
+                if (Check.CheckWord(e1 + e2, words)) {
+                    System.out.println(e1.toLowerCase() + e2.toLowerCase());
                 }
             }
         }
+
+        for (String e1 : elements) {
+            for (String e2 : elements) {
+                for (String e3 : elements) {
+                    if (Check.CheckWord(e1 + e2 + e3, words)) {
+                        System.out.println(e1.toLowerCase() + e2.toLowerCase() + e3.toLowerCase());
+                    }
+                }
+            }
+        }
+
+        System.out.println("\nThere were " + count + " words!");
     }
 }
+
+
