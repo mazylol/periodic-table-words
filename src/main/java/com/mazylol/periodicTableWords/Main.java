@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 public class Main {
     public static int count = 0;
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
         String[] words = Files.GetWords();
         String[] elements = Files.GetElements();
 
@@ -20,7 +20,10 @@ public class Main {
 
         t1.start();
         t2.start();
-        t3.start();
+        //t3.start();
+
+        t1.join();
+        t2.join();
 
         System.out.println("\nThere were " + count + " words!");
     }
