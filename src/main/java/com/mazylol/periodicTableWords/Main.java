@@ -16,16 +16,12 @@ public class Main {
 
         Thread t1 = new Thread(new RunnerOne(words, elements));
         Thread t2 = new Thread(new RunnerTwo(words, elements));
-        Thread t3 = new Thread(new RunnerTwo(words, elements));
+        Thread t3 = new Thread(new RunnerThree(words, elements));
 
         t1.start();
         t2.start();
         t3.start();
 
-        RunnerThree.loop(elements, words);
-
         System.out.println("\nThere were " + count + " words!");
     }
 }
-
-
