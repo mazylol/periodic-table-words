@@ -1,6 +1,8 @@
 package com.mazylol.periodicTableWords;
 
-import com.mazylol.periodicTableWords.utils.Check;
+import com.mazylol.periodicTableWords.runners.RunnerOne;
+import com.mazylol.periodicTableWords.runners.RunnerThree;
+import com.mazylol.periodicTableWords.runners.RunnerTwo;
 import com.mazylol.periodicTableWords.utils.Files;
 
 import java.io.FileNotFoundException;
@@ -12,29 +14,15 @@ public class Main {
         String[] words = Files.GetWords();
         String[] elements = Files.GetElements();
 
-        for (String e : elements) {
-            if (Check.CheckWord(e, words)) {
-                System.out.println(e.toLowerCase());
-            }
-        }
+        Thread t1 = new Thread(new RunnerOne(words, elements));
+        Thread t2 = new Thread(new RunnerTwo(words, elements));
+        Thread t3 = new Thread(new RunnerTwo(words, elements));
 
-        for (String e1 : elements) {
-            for (String e2 : elements) {
-                if (Check.CheckWord(e1 + e2, words)) {
-                    System.out.println(e1.toLowerCase() + e2.toLowerCase());
-                }
-            }
-        }
+        t1.start();
+        t2.start();
+        t3.start();
 
-        for (String e1 : elements) {
-            for (String e2 : elements) {
-                for (String e3 : elements) {
-                    if (Check.CheckWord(e1 + e2 + e3, words)) {
-                        System.out.println(e1.toLowerCase() + e2.toLowerCase() + e3.toLowerCase());
-                    }
-                }
-            }
-        }
+        RunnerThree.loop(elements, words);
 
         System.out.println("\nThere were " + count + " words!");
     }
